@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Windows.Forms;
 namespace PasswordGenerator
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
             string path = "";
@@ -67,7 +69,12 @@ namespace PasswordGenerator
                     }
                     break;
             }
-            Console.WriteLine("Your final password is " + finalpassword);
+            Console.WriteLine("Your final password is " + finalpassword + ", would you like to copy it?");
+            String copy = Console.ReadLine();
+            if(copy == "yes" || copy == "Yes")
+            {
+                Clipboard.SetText(finalpassword);
+            }
             Console.ReadLine();
             if(export == "yes" || export == "Yes")
             {
