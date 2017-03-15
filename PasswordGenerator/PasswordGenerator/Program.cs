@@ -23,11 +23,11 @@ namespace PasswordGenerator
                 path = Console.ReadLine();
             }
             Console.WriteLine("Option one: Letters Only");
-            Thread.Sleep(1000);
+            sleep();
             Console.WriteLine("Option two: Letters & numbers");
-            Thread.Sleep(1000);
+            sleep();
             Console.WriteLine("Option three: Letters, numbers, & symbols.");
-            Thread.Sleep(1000);
+            sleep();
             Console.WriteLine("What option would you like?");
             int option = Int32.Parse(Console.ReadLine());
             Random rand = new Random();
@@ -81,6 +81,10 @@ namespace PasswordGenerator
                 System.IO.File.WriteAllText(@"" + path, finalpassword);
             }
 
+        }
+        public static void sleep()
+        {
+            Thread.Sleep(1000);
         }
     }
 }
